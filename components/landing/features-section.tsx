@@ -1,35 +1,35 @@
-import { Smartphone, Eye, Sparkles, Shield, Heart, Check, Lock, ShieldOff } from "lucide-react";
+import { Smartphone, Sparkles, ListChecks, Shield, Lock, Heart, Check, ShieldOff } from "lucide-react";
 
 const features = [
   {
     icon: Smartphone,
-    title: "Zero friction for patients",
-    description: "They use WhatsApp — the app already on their phone. No downloads, no passwords, no onboarding. They just reply to a message.",
-  },
-  {
-    icon: Eye,
-    title: "Full picture between sessions",
-    description: "Progress, adherence, pain signals, barriers — all captured automatically through natural conversation. No manual data entry.",
+    title: "WhatsApp. Not another app.",
+    description: "98% open rate. Zero downloads. Patients reply the way they'd text a friend.",
   },
   {
     icon: Sparkles,
-    title: "AI-powered triage, not guesswork",
-    description: "Our AI reads every message, understands the clinical context, and surfaces the right patients at the right time. You get actionable insights.",
+    title: "Signal, not noise",
+    description: "AI reads every message and extracts pain, adherence, barriers, and mood — so you don't have to.",
   },
   {
-    icon: Check,
-    title: "Your queue is empty most days",
-    description: "You only see patients who need action. No noise, no unnecessary alerts. When it's clear, it tells you — and you move on.",
+    icon: ListChecks,
+    title: "A queue, not a caseload",
+    description: "Patients ranked by urgency. Green means progressing. You only open what needs your attention.",
   },
   {
     icon: Shield,
-    title: "Safety guardrails built-in",
-    description: "Red flag symptoms trigger immediate escalation. Deterministic safety gates ensure critical issues never get missed by AI.",
+    title: "Safety-first. Always.",
+    description: "Red-flag symptoms trigger instant escalation. Deterministic detection — no AI in the safety loop.",
+  },
+  {
+    icon: Lock,
+    title: "Replace personal WhatsApp",
+    description: "Every interaction logged, timestamped, audit-ready. GDPR-compliant. No more messaging patients from your phone.",
   },
   {
     icon: Heart,
-    title: "Patients who feel supported come back",
-    description: "Consistent check-ins between sessions show patients you're invested. Better experience, stronger retention, more follow-up bookings.",
+    title: "Patients who feel supported return",
+    description: "Daily check-ins show you're invested between sessions. Better experience. Stronger retention.",
   },
 ];
 
@@ -44,10 +44,10 @@ export function FeaturesSection() {
             Features
           </div>
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-            Better outcomes. Zero admin.
+            Everything you need. Nothing you don&rsquo;t.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-500 sm:text-lg">
-            A complete system for patient monitoring, safety, and engagement — without the overhead.
+            Clinical monitoring, safety, and engagement — without the overhead.
           </p>
         </div>
 

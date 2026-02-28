@@ -20,7 +20,7 @@ export function HeroSection() {
             </h1>
 
             <p className="mt-5 text-lg leading-relaxed text-slate-500">
-              Rehab doesn't stop when they walk out the clinic door.
+              Turn between-session WhatsApp messages into clinical signal you can act on.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -42,9 +42,9 @@ export function HeroSection() {
 
             <div className="mt-10 space-y-3">
               {[
-                "Extract clinical signal from natural conversation",
-                "No app fatigue — just effortless engagement",
-                "Filter the noise — focus only on those who need you",
+                "98% open rate — WhatsApp, not another app",
+                "AI extracts clinical signal from natural conversation",
+                "You only see patients who need you",
               ].map((point) => (
                 <p key={point} className="flex items-start gap-3 text-sm leading-relaxed text-slate-500">
                   <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-blue-50">
@@ -126,7 +126,7 @@ export function HeroSection() {
 
             {/* Subheading below queue */}
             <p className="mt-7 text-base leading-relaxed text-slate-500">
-              Pocket Physio gives you the visibility to guide their recovery between appointments — catching problems early and improving outcomes.
+              Your morning starts here. Open the queue, see who needs you, act.
             </p>
 
             {/* Soft glow behind card */}

@@ -2,38 +2,36 @@ import { Check, X } from "lucide-react";
 
 const stats = [
   {
-    value: "Earlier",
-    label: "Intervention",
-    note: "Catch problems days before the next appointment.",
+    value: "98%",
+    label: "Message open rate",
+    note: "WhatsApp gets read. Health apps don't.",
   },
   {
-    value: "95%",
-    label: "Message open rate",
-    note: "WhatsApp gets read. Apps don't.",
+    value: "Day 2",
+    label: "Problem detection",
+    note: "Not at the next appointment.",
   },
   {
     value: "0",
     label: "Apps to download",
-    note: "No app fatigue. No friction. No barrier.",
+    note: "Zero downloads. Zero logins. Zero behaviour change.",
   },
 ];
 
-const comparisonRows = [
+const scenarios = [
   {
-    without: "Patients leave and you hope for the best",
-    with: "Regular check-ins tell you exactly how they're doing",
+    title: "Pain caught early",
+    before:
+      'Athlete says "bit tight" Tuesday. "Properly sore" Thursday. Physio finds out Friday — assessment starts from scratch.',
+    after:
+      "Dashboard flags worsening pain Thursday. Physio walks in knowing exactly what to address.",
   },
   {
-    without: "No visibility until the next appointment",
-    with: "Real-time signals surface who needs attention",
-  },
-  {
-    without: "Manual follow-up takes time you don't have",
-    with: "AI handles the conversation. You review and act.",
-  },
-  {
-    without: "Another app patients won't download",
-    with: "WhatsApp. Already on their phone. Already trusted.",
+    title: "Dropout prevented",
+    before:
+      "Patient goes silent Tuesday. Misses Thursday. Never rebooks. Four sessions of revenue lost.",
+    after:
+      "Silence flagged Day 1. Check-in sent. Patient replies. Session saved.",
   },
 ];
 
@@ -48,10 +46,10 @@ export function ForClinics() {
             For Clinics
           </div>
           <h2 className="text-balance text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
-            Intelligence across your entire caseload.
+            Better decisions. Retained patients.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-slate-500 sm:text-lg">
-            Whether they're recovering from surgery or training for a marathon, the gap between sessions is where the outcome is decided.
+            The gap between sessions is where outcomes are decided. Now you have visibility across your entire caseload.
           </p>
         </div>
 
@@ -71,47 +69,34 @@ export function ForClinics() {
           ))}
         </div>
 
-        {/* Comparison table */}
-        <div className="mx-auto mt-16 max-w-5xl overflow-hidden rounded-2xl ring-1 ring-black/5 shadow-sm">
-          {/* Header */}
-          <div className="grid grid-cols-2 bg-slate-50 border-b border-slate-100">
-            <div className="border-r border-slate-100 px-7 py-5">
-              <div className="flex items-center gap-2.5">
-                <div className="h-2 w-2 rounded-full bg-red-400" />
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">Without Pocket Physio</h3>
-              </div>
-            </div>
-            <div className="px-7 py-5">
-              <div className="flex items-center gap-2.5">
-                <div className="h-2 w-2 rounded-full bg-emerald-500" />
-                <h3 className="text-xs font-bold uppercase tracking-widest text-slate-500">With Pocket Physio</h3>
-              </div>
-            </div>
-          </div>
-
-          {/* Rows */}
-          {comparisonRows.map((row, index) => (
+        {/* Before / After scenarios */}
+        <div className="mx-auto mt-16 grid max-w-5xl gap-6 sm:grid-cols-2">
+          {scenarios.map((scenario) => (
             <div
-              key={index}
-              className={`grid grid-cols-2 ${index % 2 === 1 ? "bg-slate-50/50" : "bg-white"} ${
-                index !== comparisonRows.length - 1 ? "border-b border-slate-100" : ""
-              }`}
+              key={scenario.title}
+              className="overflow-hidden rounded-2xl ring-1 ring-black/5"
             >
-              <div className="border-r border-slate-100 px-7 py-5">
-                <div className="flex items-start gap-3">
-                  <X className="mt-0.5 h-4 w-4 shrink-0 text-red-400" />
-                  <p className="text-sm leading-relaxed text-slate-400">{row.without}</p>
-                </div>
+              <div className="border-b border-slate-100 bg-slate-50 px-6 py-4">
+                <h3 className="text-sm font-semibold text-slate-900">{scenario.title}</h3>
               </div>
-              <div className="px-7 py-5">
+              <div className="space-y-4 p-6">
                 <div className="flex items-start gap-3">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-500" />
-                  <p className="text-sm leading-relaxed text-slate-700">{row.with}</p>
+                  <X className="mt-0.5 h-4 w-4 flex-shrink-0 text-red-400" />
+                  <p className="text-sm leading-relaxed text-slate-400">{scenario.before}</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-emerald-500" />
+                  <p className="text-sm leading-relaxed text-slate-700">{scenario.after}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Business value */}
+        <p className="mx-auto mt-12 max-w-2xl text-center text-base font-medium text-slate-500">
+          One saved dropout per physio per month pays for the entire platform.
+        </p>
 
       </div>
     </section>
