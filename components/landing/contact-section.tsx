@@ -10,14 +10,36 @@ import { ArrowRight, Check } from "lucide-react";
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
-    // Simulate submission - replace with real API call
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setLoading(false);
-    setSubmitted(true);
+    setError(null);
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      clinic: (form.elements.namedItem('clinic') as HTMLInputElement).value,
+      phone: (form.elements.namedItem('phone') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+      setSubmitted(true);
+    } catch {
+      setError('Something went wrong. Please email us directly at karam@pocketphysio.uk');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -123,6 +145,9 @@ export function ContactSection() {
                   {loading ? "Sending..." : "Book a Demo"}
                   {!loading && <ArrowRight className="ml-2 h-4 w-4" />}
                 </Button>
+                {error && (
+                  <p className="mt-3 text-xs text-destructive">{error}</p>
+                )}
                 <p className="mt-3 text-xs text-muted-foreground">
                   We{"'"}ll be in touch within 24 hours. No spam, ever.
                 </p>
