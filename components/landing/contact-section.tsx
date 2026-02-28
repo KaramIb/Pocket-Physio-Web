@@ -52,8 +52,18 @@ export function ContactSection() {
               Book your demo
             </h2>
             <p className="mt-4 text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-              See exactly how Pocket Physio would work with your clinic.&nbsp;
+              See exactly how Pocket Physio would work with your clinic.
             </p>
+
+            {/* Founder credibility */}
+            <div className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-slate-100 px-5 py-2.5">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-blue-600">
+                <span className="text-[10px] font-bold text-white">NHS</span>
+              </div>
+              <span className="text-sm font-medium text-slate-600">
+                Built by an NHS Physiotherapist
+              </span>
+            </div>
           </div>
 
           {/* Form */}

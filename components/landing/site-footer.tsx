@@ -21,7 +21,7 @@ export function SiteFooter() {
             {[
               { label: "Privacy", href: "#" },
               { label: "Terms", href: "#" },
-              { label: "Contact", href: "mailto:hello@pocketphysio.com" },
+              { label: "Contact", href: "mailto:karam@pocketphysio.uk" },
             ].map((link) => (
               <a
                 key={link.label}
